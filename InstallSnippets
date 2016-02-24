@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+## iterate through each file whose name ends in 'jpg'
+## saving it as $file. ~ is your $HOME directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+for file in $DIR/*.codesnippet
+do
+    ## copy the file to the new directory
+    USER_HOME=$(eval echo ~${SUDO_USER})
+    cp "$file" "${USER_HOME}/Library/Developer/Xcode/UserData/CodeSnippets"
+done
